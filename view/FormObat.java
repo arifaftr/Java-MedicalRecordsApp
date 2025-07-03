@@ -59,7 +59,7 @@ public class FormObat extends JPanel{
         btnLihat = new JButton("Lihat Data");
         btnReset = new JButton("Reset");
 
-        panelInput.setBorder(BorderFactory.createTitledBorder("Form Input Pasien"));
+        panelInput.setBorder(BorderFactory.createTitledBorder("Form Input Obat"));
         panelInput.add(new JLabel("Nama:")); panelInput.add(tfNama);
         panelInput.add(new JLabel("Pembuat:")); panelInput.add(tfPembuat);
         panelInput.add(new JLabel("Stok:")); panelInput.add(tfStok);
