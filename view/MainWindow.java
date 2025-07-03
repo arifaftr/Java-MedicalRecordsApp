@@ -31,15 +31,25 @@ public class MainWindow extends JFrame {
 
         JButton btnPasien = new JButton("Data Pasien");
         JButton btnDokter = new JButton("Data Dokter");
+        JButton btnObat = new JButton("Data Obat");
+        JButton btnPemeriksaan = new JButton("Data Pemeriksaan");
         JButton btnKeluar = new JButton("Keluar");
+
 
         btnPasien.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnDokter.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnObat.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnPemeriksaan.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnKeluar.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         sidebar.add(btnPasien);
         sidebar.add(Box.createVerticalStrut(10));
         sidebar.add(btnDokter);
+        sidebar.add(Box.createVerticalStrut(10));
+        sidebar.add(btnObat);
+        sidebar.add(Box.createVerticalStrut(10));
+        sidebar.add(btnPemeriksaan);
+        sidebar.add(Box.createVerticalStrut(10));
         sidebar.add(Box.createVerticalGlue());
         sidebar.add(btnKeluar);
 
@@ -85,6 +95,20 @@ public class MainWindow extends JFrame {
             mainContent.revalidate();
             mainContent.repaint();
         });
+        
+        btnObat.addActionListener(e -> {
+            mainContent.removeAll();
+            mainContent.add(new FormObatPanel(), BorderLayout.CENTER);
+            mainContent.revalidate();
+            mainContent.repaint();
+        });
+        
+        btnPemeriksaan.addActionListener(e -> {
+            mainContent.removeAll();
+            mainContent.add(new FormPemeriksaanPanel(), BorderLayout.CENTER);
+            mainContent.revalidate();
+            mainContent.repaint();
+        });
 
         btnKeluar.addActionListener(e -> System.exit(0));
 
@@ -110,6 +134,22 @@ public class MainWindow extends JFrame {
         public FormDokterPanel() {
             setLayout(new BorderLayout());
             add(new FormDokter(), BorderLayout.CENTER);
+        }
+    }
+    
+    // Wrapper Panel Obat
+    private class FormObatPanel extends JPanel {
+        public FormObatPanel() {
+            setLayout(new BorderLayout());
+            add(new FormObat(), BorderLayout.CENTER);
+        }
+    }
+    
+    //Wrapper Panel Pemeriksaan
+    private class FormPemeriksaanPanel extends JPanel {
+        public FormPemeriksaanPanel() {
+            setLayout(new BorderLayout());
+            add(new FormPemeriksaan(), BorderLayout.CENTER);
         }
     }
 
